@@ -1,6 +1,9 @@
 const express = require('express');
 const db = require('./utils/database');
 const Todos = require('./models/todos.model')
+require('dotenv').config();
+
+const PORT = process.env.PORT || 8000;
 
 
 db.authenticate()//es una funion asincrono
@@ -84,6 +87,6 @@ app.delete('/api/v1/todos/:id', async (req, res) => {
 
 
 //dejar escuchando el servidor
-app.listen(8000, () => {
-  console.log("servidor escuchando en el pto 8000")
+app.listen(PORT, () => {
+  console.log(`servidor escuchando en el pto ${PORT}`);
 })
